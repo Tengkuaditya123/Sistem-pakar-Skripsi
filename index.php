@@ -1,3 +1,14 @@
+<?php
+session_start();
+$page = isset($_GET['page']) ? $_GET['page'] : "";
+
+if (isset($_SESSION['login'])) {
+    if ($page == "" || $page == "login") {
+        header("Location: dashboard/index.php");
+        exit;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

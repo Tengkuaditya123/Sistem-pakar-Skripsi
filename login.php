@@ -15,17 +15,17 @@
         <h4 class="mb-4">Login</h4>
 
         <!-- FORM -->
-        <form method="POST" action="#">
+        <form method="POST" action="loginproses.php">
 
             <div class="mb-3">
-                <input type="text" class="form-control custom-input" placeholder="Email">
+                <input type="text" name="username" class="form-control custom-input" placeholder="Username" required>
             </div>
 
             <div class="mb-3">
-                <input type="password" class="form-control custom-input" placeholder="Password">
+                <input type="password" name="password" class="form-control custom-input" placeholder="Password" required>
             </div>
 
-            <button class="btn btn-secondary w-100">LOGIN</button>
+            <button type="submit" class="btn btn-secondary w-100">LOGIN</button>
 
 
         </form>

@@ -1,16 +1,30 @@
 <?php
 session_start();
-include "../config/koneksi.php";
+include "koneksi.php";
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-$query = mysqli_query($conn, "SELECT * FROM user WHERE username='$username' AND password='$password'");
+    // Query untuk memeriksa user
+    $query = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' AND password='$password'");
 
-if(mysqli_num_rows($query) > 0){
-    $_SESSION['login'] = true;
-    header("Location: ../dashboard.php");
+    if (mysqli_num_rows($query) > 0) {
+        $row = mysqli_fetch_assoc($query);
+        $_SESSION['login'] = true;
+        $_SESSION['id_user'] = $row['id_user'];
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['nama'] = $row['nama'];
+        $_SESSION['role'] = $row['role'];
+
+        header("Location: dashboard/index.php");
+        exit;
+    } else {
+        echo "<script>alert('Username atau password salah!'); window.location.href='index.php';</script>";
+        exit;
+    }
 } else {
-    echo "Login gagal!";
+    header("Location: index.php");
+    exit;
 }
 ?>
