@@ -29,9 +29,7 @@
 
 
         </form>
-        <div class="text-center mt-3">
-    <a href="forgot.php" class="forgot-link">Don't have a account?</a>
-</div>
+
     </div>
 </div>
 
