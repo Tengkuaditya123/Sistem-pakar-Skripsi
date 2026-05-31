@@ -305,12 +305,7 @@ if (in_array($current_dir, $admin_dirs) && $_SESSION['role'] !== 'admin') {
                         <span>Kelola Rule</span>
                     </a>
                 </li>
-                <li>
-                    <a href="<?php echo $base_url; ?>pemeriksaan/laporan.php" class="<?php echo ($current_dir == 'pemeriksaan' && $current_file == 'laporan.php') ? 'active' : ''; ?>">
-                        <i class="bi bi-file-earmark-text-fill"></i>
-                        <span>Laporan Pemeriksaan</span>
-                    </a>
-                </li>
+
             <?php elseif ($_SESSION['role'] == 'petugas_qc'): ?>
                 <li>
                     <a href="<?php echo $base_url; ?>pemeriksaan/index.php" class="<?php echo ($current_dir == 'pemeriksaan' && ($current_file == 'index.php' || $current_file == 'pilih_part.php' || $current_file == 'proses.php' || $current_file == 'hasil.php')) ? 'active' : ''; ?>">
