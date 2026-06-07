@@ -69,11 +69,11 @@ if (isset($_POST['proses_diagnosa'])) {
             $diagnosa = implode(";\n", array_unique($diagnosa_arr));
         }
         
-        $solusi = "Lakukan pembongkaran mekanis pada part " . $part['nama_part'] . ", cek koneksi kelistrikan, bersihkan kerak/kotoran, serta segera lakukan perbaikan atau penggantian komponen yang aus.";
+        $solusi = "Lakukan perbaikan yang sesuai dengan gejala pada part " . $part['nama_part'] . ", dan koordinasi dengan divisi produksi yang terkait.";
     } else {
         $status_qc = 'LOLOS';
-        $diagnosa = "Seluruh indikator pada part " . $part['nama_part'] . " dalam kondisi prima.";
-        $solusi = "Lakukan pemeliharaan rutin secara berkala sesuai panduan teknis manufaktur.";
+        $diagnosa = "Seluruh indikator pada part " . $part['nama_part'] . "  dalam kondisi normal.";
+        $solusi = "Lakukan pemeliharaan ringan dan rutin untuk menjaga kondisi fisik dan fungsi pada part.";
     }
 
     // Simpan otomatis ke tabel pemeriksaan

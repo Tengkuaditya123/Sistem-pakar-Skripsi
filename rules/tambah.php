@@ -1,7 +1,7 @@
 <?php
 include "../koneksi.php";
 
-// Ambil list gejala untuk dropdown
+// Ambil list gejala untuk checkboxes
 $gejala_list = mysqli_query($conn, "SELECT * FROM gejala ORDER BY kode_gejala ASC");
 
 // Ambil list part untuk dropdown
@@ -9,33 +9,43 @@ $part_list = mysqli_query($conn, "SELECT * FROM part_kendaraan ORDER BY kode_par
 
 $error = '';
 if (isset($_POST['submit'])) {
-    $id_gejala = intval($_POST['id_gejala']);
+    $kode_rule = strtoupper(trim($_POST['kode_rule']));
     $id_part = intval($_POST['id_part']);
     $keputusan = trim($_POST['keputusan']);
+    $status = $_POST['status'];
+    $selected_gejala = isset($_POST['gejala']) ? $_POST['gejala'] : []; // Array of id_gejala
 
-    if ($id_gejala <= 0 || $id_part <= 0 || empty($keputusan)) {
-        $error = 'Semua field wajib dipilih/diisi!';
+    if (empty($kode_rule) || $id_part <= 0 || empty($keputusan) || empty($status) || empty($selected_gejala)) {
+        $error = 'Semua field wajib diisi dan minimal 1 gejala harus dipilih!';
     } else {
-        // Cek jika rule pemetaan ini sudah ada (opsional, tapi disarankan)
-        $check_stmt = mysqli_prepare($conn, "SELECT id_rule FROM rules WHERE id_gejala = ? AND id_part = ?");
-        mysqli_stmt_bind_param($check_stmt, "ii", $id_gejala, $id_part);
+        // Cek apakah kode_rule sudah digunakan
+        $check_stmt = mysqli_prepare($conn, "SELECT id_rule FROM rules WHERE kode_rule = ?");
+        mysqli_stmt_bind_param($check_stmt, "s", $kode_rule);
         mysqli_stmt_execute($check_stmt);
         mysqli_stmt_store_result($check_stmt);
 
         if (mysqli_stmt_num_rows($check_stmt) > 0) {
-            $error = 'Kombinasi Gejala dan Part ini sudah terdaftar sebagai Rule. Silakan edit rule yang sudah ada.';
+            $error = 'Kode Rule sudah terdaftar, silakan gunakan kode lain.';
         } else {
-            // Simpan rule baru
-            $stmt = mysqli_prepare($conn, "INSERT INTO rules (id_gejala, id_part, keputusan) VALUES (?, ?, ?)");
-            mysqli_stmt_bind_param($stmt, "iis", $id_gejala, $id_part, $keputusan);
+            // Simpan rule baru (satu baris untuk setiap gejala terpilih)
+            $success = true;
+            $stmt = mysqli_prepare($conn, "INSERT INTO rules (kode_rule, id_gejala, id_part, keputusan, status) VALUES (?, ?, ?, ?, ?)");
+            
+            foreach ($selected_gejala as $id_g) {
+                $id_g_int = intval($id_g);
+                mysqli_stmt_bind_param($stmt, "siiss", $kode_rule, $id_g_int, $id_part, $keputusan, $status);
+                if (!mysqli_stmt_execute($stmt)) {
+                    $success = false;
+                }
+            }
+            mysqli_stmt_close($stmt);
 
-            if (mysqli_stmt_execute($stmt)) {
+            if ($success) {
                 header("Location: index.php?status=sukses_tambah");
                 exit;
             } else {
                 $error = 'Gagal menyimpan data rule.';
             }
-            mysqli_stmt_close($stmt);
         }
         mysqli_stmt_close($check_stmt);
     }
@@ -50,7 +60,7 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Tambah Rule Baru</h2>
-        <p class="text-muted">Buat pemetaan diagnosis forward chaining baru (IF Gejala THEN Part + Keputusan)</p>
+        <p class="text-muted">Buat aturan forward chaining dengan mengelompokkan gejala ke komponen part (Logika OR)</p>
     </div>
 </div>
 
@@ -59,25 +69,18 @@ include "../templates/header.php";
         <div class="card shadow-sm border-0 p-4">
             <?php if ($error != ''): ?>
                 <div class="alert alert-danger" role="alert">
-                    <?php echo htmlspecialchars($error); ?>
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i> <?php echo htmlspecialchars($error); ?>
                 </div>
             <?php endif; ?>
 
             <form method="POST" action="">
                 <div class="mb-3">
-                    <label for="id_gejala" class="form-label fw-medium">Pilih Gejala (IF)</label>
-                    <select name="id_gejala" id="id_gejala" class="form-select" required>
-                        <option value="" disabled selected>-- Pilih Gejala --</option>
-                        <?php while ($gj = mysqli_fetch_assoc($gejala_list)): ?>
-                            <option value="<?php echo $gj['id_gejala']; ?>" <?php echo (isset($_POST['id_gejala']) && $_POST['id_gejala'] == $gj['id_gejala']) ? 'selected' : ''; ?>>
-                                [<?php echo htmlspecialchars($gj['kode_gejala']); ?>] <?php echo htmlspecialchars($gj['nama_gejala']); ?>
-                            </option>
-                        <?php endwhile; ?>
-                    </select>
+                    <label for="kode_rule" class="form-label fw-semibold">Kode Rule</label>
+                    <input type="text" name="kode_rule" id="kode_rule" class="form-control" placeholder="Contoh: R1" required value="<?php echo isset($_POST['kode_rule']) ? htmlspecialchars($_POST['kode_rule']) : ''; ?>">
                 </div>
 
                 <div class="mb-3">
-                    <label for="id_part" class="form-label fw-medium">Pilih Part Kendaraan Terkait (THEN)</label>
+                    <label for="id_part" class="form-label fw-semibold">Pilih Part Kendaraan Terkait (THEN)</label>
                     <select name="id_part" id="id_part" class="form-select" required>
                         <option value="" disabled selected>-- Pilih Part Kendaraan --</option>
                         <?php while ($pt = mysqli_fetch_assoc($part_list)): ?>
@@ -89,8 +92,35 @@ include "../templates/header.php";
                 </div>
 
                 <div class="mb-3">
-                    <label for="keputusan" class="form-label fw-medium">Keputusan / Diagnosis Hasil Pemeriksaan</label>
-                    <textarea name="keputusan" id="keputusan" class="form-control" rows="3" placeholder="Contoh: Terjadi kebocoran minyak rem atau ada udara di sistem pengereman" required><?php echo isset($_POST['keputusan']) ? htmlspecialchars($_POST['keputusan']) : ''; ?></textarea>
+                    <label for="status" class="form-label fw-semibold">Status Uji Kelayakan</label>
+                    <select name="status" id="status" class="form-select" required>
+                        <option value="TIDAK LOLOS" <?php echo (isset($_POST['status']) && $_POST['status'] == 'TIDAK LOLOS') ? 'selected' : ''; ?>>TIDAK LOLOS</option>
+                        <option value="LOLOS" <?php echo (isset($_POST['status']) && $_POST['status'] == 'LOLOS') ? 'selected' : ''; ?>>LOLOS</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="keputusan" class="form-label fw-semibold">Diagnosa Kerusakan</label>
+                    <textarea name="keputusan" id="keputusan" class="form-control" rows="3" placeholder="Contoh: Kerusakan pada sistem rem atau kampas aus" required><?php echo isset($_POST['keputusan']) ? htmlspecialchars($_POST['keputusan']) : ''; ?></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold d-block">Pilih Gejala Kerusakan (IF - Logika OR)</label>
+                    <p class="text-muted small">Pilih gejala apa saja yang jika muncul akan memicu rule ini.</p>
+                    <div class="border rounded p-3 bg-light" style="max-height: 250px; overflow-y: auto;">
+                        <?php if (mysqli_num_rows($gejala_list) > 0): ?>
+                            <?php while ($gj = mysqli_fetch_assoc($gejala_list)): ?>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" name="gejala[]" value="<?php echo $gj['id_gejala']; ?>" id="gj_<?php echo $gj['id_gejala']; ?>" <?php echo (isset($_POST['gejala']) && in_array($gj['id_gejala'], $_POST['gejala'])) ? 'checked' : ''; ?>>
+                                    <label class="form-check-label text-dark fw-medium small" style="cursor: pointer;" for="gj_<?php echo $gj['id_gejala']; ?>">
+                                        <span class="badge bg-warning text-dark me-1"><?php echo htmlspecialchars($gj['kode_gejala']); ?></span> - <?php echo htmlspecialchars($gj['nama_gejala']); ?>
+                                    </label>
+                                </div>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <p class="text-muted mb-0 small">Belum ada data gejala terdaftar.</p>
+                        <?php endif; ?>
+                    </div>
                 </div>
 
                 <div class="mt-4 text-end">

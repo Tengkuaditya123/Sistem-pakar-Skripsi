@@ -17,16 +17,16 @@ $query_kendaraan = mysqli_query($conn, "SELECT * FROM kendaraan ORDER BY nama_ke
     <div class="col-md-8">
         <div class="card shadow-sm border-0">
             <div class="card-header bg-primary text-white py-3">
-                <h5 class="card-title mb-0 fw-bold"><i class="bi bi-truck me-2"></i> Pilih Kendaraan Rantis</h5>
+                <h5 class="card-title mb-0 fw-bold"><i class="bi bi-truck me-2"></i> Pilih Kendaraan</h5>
             </div>
             <div class="card-body p-4">
-                <p class="text-muted small mb-4">Silakan pilih unit kendaraan taktis (Rantis) dari daftar di bawah ini untuk memulai audit komponen / part.</p>
+                <p class="text-muted small mb-4">Silakan pilih unit kendaraan</p>
                 
                 <form method="GET" action="pilih_part.php">
                     <div class="mb-4">
-                        <label for="id_kendaraan" class="form-label fw-semibold">Pilih Unit Rantis</label>
+                        <label for="id_kendaraan" class="form-label fw-semibold">Pilih Unit</label>
                         <select name="id_kendaraan" id="id_kendaraan" class="form-select form-select-lg" required>
-                            <option value="" disabled selected>-- Pilih Unit Rantis --</option>
+                            <option value="" disabled selected>-- Pilih Unit --</option>
                             <?php while ($kdr = mysqli_fetch_assoc($query_kendaraan)): ?>
                                 <option value="<?php echo $kdr['id_kendaraan']; ?>">
                                     [<?php echo htmlspecialchars($kdr['kode_kendaraan']); ?>] <?php echo htmlspecialchars($kdr['nama_kendaraan']); ?>

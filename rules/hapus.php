@@ -8,11 +8,11 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$kode = isset($_GET['kode']) ? trim($_GET['kode']) : '';
 
-if ($id > 0) {
-    $stmt = mysqli_prepare($conn, "DELETE FROM rules WHERE id_rule = ?");
-    mysqli_stmt_bind_param($stmt, "i", $id);
+if (!empty($kode)) {
+    $stmt = mysqli_prepare($conn, "DELETE FROM rules WHERE kode_rule = ?");
+    mysqli_stmt_bind_param($stmt, "s", $kode);
     
     if (mysqli_stmt_execute($stmt)) {
         header("Location: index.php?status=sukses_hapus");

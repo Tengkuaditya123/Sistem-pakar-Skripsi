@@ -49,7 +49,7 @@ $query_gejala = mysqli_query($conn, "
             <div class="p-4 rounded-3 text-center border" style="background-color: #d1e7dd; border-color: #a3cfbb !important; color: #0f5132;">
                 <h5 class="fw-bold mb-1">HASIL SERTIFIKASI QUALITY CONTROL</h5>
                 <h1 class="fw-bold display-5 my-2 text-success"><i class="bi bi-patch-check-fill me-2"></i> LOLOS QC</h1>
-                <p class="mb-0 small fw-medium">Sistem menyatakan part/komponen rantis berada dalam kondisi normal dan layak jalan.</p>
+                <p class="mb-0 small fw-medium">Sistem menyatakan part/komponen kendaraan rantis sesuai standart.</p>
             </div>
         <?php else: ?>
             <div class="p-4 rounded-3 text-center border" style="background-color: #f8d7da; border-color: #f5c2c7 !important; color: #842029;">
@@ -69,11 +69,7 @@ $query_gejala = mysqli_query($conn, "
             <div class="card-body p-4">
                 <table class="table table-borderless align-middle mb-0">
                     <tr>
-                        <th width="35%">Kode Rantis</th>
-                        <td>: <strong class="text-primary"><?php echo htmlspecialchars($pem['kode_kendaraan']); ?></strong></td>
-                    </tr>
-                    <tr>
-                        <th>Nama Rantis</th>
+                        <th>Tipe Kendaraan</th>
                         <td>: <?php echo htmlspecialchars($pem['nama_kendaraan']); ?></td>
                     </tr>
                     <tr>
@@ -110,7 +106,7 @@ $query_gejala = mysqli_query($conn, "
                             <?php endwhile; ?>
                         </ul>
                     <?php else: ?>
-                        <p class="text-success fw-bold mb-0 py-2"><i class="bi bi-shield-check-fill me-1"></i> Tidak ada gejala kerusakan yang teramati.</p>
+                        <p class="text-success fw-bold mb-0 py-2"><i class="bi bi-shield-check-fill me-1"></i> Tidak ada gejala yang terdeteksi pada part kendaraan.</p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -133,7 +129,7 @@ $query_gejala = mysqli_query($conn, "
     <div class="col-md-12 mb-4">
         <div class="card shadow-sm border-0 border-start border-3 border-info">
             <div class="card-header bg-info-subtle text-primary-emphasis py-3 border-0">
-                <h6 class="card-title mb-0 fw-bold"><i class="bi bi-wrench me-2"></i> Rekomendasi Solusi Penanganan</h6>
+                <h6 class="card-title mb-0 fw-bold"><i class="bi bi-wrench me-2"></i> Rekomendasi Solusi </h6>
             </div>
             <div class="card-body p-4 bg-white text-primary-emphasis" style="white-space: pre-line; line-height: 1.6;">
                 <?php echo htmlspecialchars($pem['solusi']); ?>

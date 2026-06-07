@@ -44,7 +44,7 @@ if ($role == 'admin') {
                 <tr>
                     <th width="60px">No</th>
                     <th>Kendaraan Rantis</th>
-                    <th>Part Teruji</th>
+                    <th>Part Yang Diperiksa</th>
                     <th>Tanggal Pengecekan</th>
                     <th width="150px">Status QC</th>
                     <th width="140px" class="text-center">Aksi</th>

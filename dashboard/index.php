@@ -229,7 +229,7 @@ if ($role === 'admin') {
             </div>
             <div>
                 <h4 class="fw-bold mb-1 text-success">Sistem Pakar QC Kendaraan Rantis</h4>
-                <p class="text-muted mb-0 small">Melakukan pengecekan kelayakan komponen kendaraan tempur menggunakan algoritma Forward Chaining logika OR.</p>
+                <p class="text-muted mb-0 small">Melakukan pemeriksaan QC untuk meningkatkan efektivitas pengendalian mutu pada kendaraan</p>
             </div>
         </div>
     </div>

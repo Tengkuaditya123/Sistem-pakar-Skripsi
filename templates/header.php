@@ -320,6 +320,9 @@ if (in_array($current_dir, $admin_dirs) && $_SESSION['role'] !== 'admin') {
                     </a>
                 </li>
             <?php endif; ?>
+ 
+
+            </li>
         </ul>
     </div>
 
@@ -335,7 +338,7 @@ if (in_array($current_dir, $admin_dirs) && $_SESSION['role'] !== 'admin') {
                     <i class="bi bi-person-fill"></i>
                 </div>
                 <span class="user-name d-none d-md-inline"><?php echo isset($_SESSION['nama']) ? htmlspecialchars($_SESSION['nama']) : 'User'; ?></span>
-                <a href="<?php echo $base_url; ?>logout.php" class="btn btn-primary btn-sm px-3 rounded">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal" class="btn btn-primary btn-sm px-3 rounded">
                     Logout
                 </a>
             </div>

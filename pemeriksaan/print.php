@@ -154,8 +154,8 @@ $query_gejala = mysqli_query($conn, "
     <!-- Kop Surat Perusahaan Rantis -->
     <div class="header-kop">
         <h2>PT Sentra Surya Ekajaya</h2>
-        <p>Quality Control Division - Military Vehicles and Defense Equipment Manufacturer</p>
-        <p style="font-size: 0.8rem;">Jl. Raya SSE No. 1, Tangerang, Banten, Indonesia</p>
+        <p>Quality Control Division</p>
+        <p style="font-size: 0.8rem;">Jl. Arya Kemuning, Kp. Pengasinan RT/RW 003/003, RT.003/RW.003, Periuk Jaya, Kec. Periuk, Kota Tangerang, Banten 15131</p>
     </div>
 
     <div class="doc-title">
@@ -164,30 +164,26 @@ $query_gejala = mysqli_query($conn, "
 
     <table class="info-table">
         <tr>
-            <th>Kode Rantis</th>
-            <td><?php echo htmlspecialchars($pem['kode_kendaraan']); ?></td>
-        </tr>
-        <tr>
-            <th>Nama Rantis</th>
+            <th>Tipe Kendaraan</th>
             <td><?php echo htmlspecialchars($pem['nama_kendaraan']); ?></td>
         </tr>
         <tr>
-            <th>Bagian / Part Pemeriksaan</th>
+            <th>Part</th>
             <td><strong><?php echo htmlspecialchars($pem['kode_part']); ?> - <?php echo htmlspecialchars($pem['nama_part']); ?></strong></td>
         </tr>
         <tr>
-            <th>Tanggal QC</th>
+            <th>Tanggal Pemeriksaan</th>
             <td><?php echo htmlspecialchars($pem['tanggal_pemeriksaan']); ?></td>
         </tr>
         <tr>
-            <th>Petugas QC</th>
+            <th>Petugas Pemeriksa</th>
             <td><?php echo htmlspecialchars($pem['nama_petugas']); ?></td>
         </tr>
         <tr>
-            <th>Status Kelayakan (QC)</th>
+            <th>Status Kelayakan</th>
             <td>
                 <?php if ($pem['status_qc'] == 'LOLOS'): ?>
-                    <span class="status-badge status-lolos">LOLOS QC / LAYAK</span>
+                    <span class="status-badge status-lolos">LOLOS QC</span>
                 <?php else: ?>
                     <span class="status-badge status-tidak-lolos">TIDAK LOLOS QC / PERBAIKAN</span>
                 <?php endif; ?>
