@@ -9,7 +9,7 @@ $query_gejala = mysqli_query($conn, "SELECT * FROM gejala ORDER BY id_gejala DES
 <div class="row mb-4">
     <div class="col-md-12 d-flex justify-content-between align-items-center">
         <div>
-            <h2 class="fw-bold mb-1">Kelola Data Gejala</h2>
+            <h2 class="fw-bold mb-1">Kelola Gejala</h2>
             <p class="text-muted small">Manajemen gejala kerusakan rantis dalam sistem pakar</p>
         </div>
         <a href="tambah.php" class="btn btn-primary btn-sm px-3 rounded d-flex align-items-center gap-1">
@@ -68,7 +68,7 @@ $query_gejala = mysqli_query($conn, "SELECT * FROM gejala ORDER BY id_gejala DES
                             <td>
                                 <div class="btn-action-group">
                                     <!-- Aksi: Hapus di kiri, Edit di kanan -->
-                                    <a href="hapus.php?id=<?php echo $gj['id_gejala']; ?>" class="btn btn-danger btn-sm p-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus gejala ini? Semua rule terkait akan ikut terhapus.');" title="Hapus">
+                                    <a href="hapus.php?id=<?php echo $gj['id_gejala']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Apakah Anda yakin ingin menghapus gejala ini? Semua rule terkait akan ikut terhapus." title="Hapus">
                                         <i class="bi bi-trash-fill"></i>
                                     </a>
                                     

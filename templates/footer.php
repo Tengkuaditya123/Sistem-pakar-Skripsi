@@ -29,6 +29,27 @@
     </div>
 </div>
 
+<!-- Global Delete Confirmation Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title fw-bold" id="confirmDeleteModalLabel"><i class="bi bi-exclamation-triangle-fill me-2"></i>Konfirmasi Hapus</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4 text-center">
+                <i class="bi bi-trash text-danger display-4 mb-3 d-block"></i>
+                <h5 class="fw-bold mb-2" id="confirmDeleteMessage">Apakah Anda yakin ingin menghapus data ini?</h5>
+                <p class="text-muted small mb-0">Tindakan ini tidak dapat dibatalkan setelah data berhasil dihapus.</p>
+            </div>
+            <div class="modal-footer border-0 d-flex justify-content-center gap-2 pb-4">
+                <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">Batal</button>
+                <a href="#" id="confirmDeleteBtn" class="btn btn-danger px-4 fw-semibold">Ya, Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <!-- Bootstrap Bundle with Popper JS -->
@@ -60,6 +81,19 @@
                     "responsive": true
                 });
             }
+
+            // Interceptor for delete buttons using Bootstrap 5 Modal
+            $(document).on('click', '.btn-confirm-delete', function(e) {
+                e.preventDefault();
+                var href = $(this).attr('href');
+                var message = $(this).attr('data-message') || 'Apakah Anda yakin ingin menghapus data ini?';
+                
+                $('#confirmDeleteMessage').text(message);
+                $('#confirmDeleteBtn').attr('href', href);
+                
+                var deleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+                deleteModal.show();
+            });
         });
     </script>
 </body>

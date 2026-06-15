@@ -58,7 +58,7 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Edit Data Gejala</h2>
-        <p class="text-muted">Perbarui gejala kerusakan rantis</p>
+        <p class="text-muted">Perbarui gejala pada part</p>
     </div>
 </div>
 

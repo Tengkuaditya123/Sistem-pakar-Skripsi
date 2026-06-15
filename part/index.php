@@ -68,7 +68,7 @@ $query_part = mysqli_query($conn, "SELECT * FROM part_kendaraan ORDER BY id_part
                             <td>
                                 <div class="btn-action-group">
                                     <!-- Aksi: Hapus di kiri (merah), Edit di kanan (biru) sesuai mockup -->
-                                    <a href="hapus.php?id=<?php echo $part['id_part']; ?>" class="btn btn-danger btn-sm p-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus part ini? Semua rule terkait akan ikut terhapus.');" title="Hapus">
+                                    <a href="hapus.php?id=<?php echo $part['id_part']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Apakah Anda yakin ingin menghapus part ini? Semua rule terkait akan ikut terhapus." title="Hapus">
                                         <i class="bi bi-trash-fill"></i>
                                     </a>
                                     

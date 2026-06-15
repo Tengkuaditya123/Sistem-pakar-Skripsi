@@ -60,7 +60,6 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Tambah Rule Baru</h2>
-        <p class="text-muted">Buat aturan forward chaining dengan mengelompokkan gejala ke komponen part (Logika OR)</p>
     </div>
 </div>
 
@@ -69,20 +68,20 @@ include "../templates/header.php";
         <div class="card shadow-sm border-0 p-4">
             <?php if ($error != ''): ?>
                 <div class="alert alert-danger" role="alert">
-                    <i class="bi bi-exclamation-triangle-fill me-2"></i> <?php echo htmlspecialchars($error); ?>
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i> <?php echo htmlspecialchars($error); ?>
                 </div>
             <?php endif; ?>
 
             <form method="POST" action="">
                 <div class="mb-3">
                     <label for="kode_rule" class="form-label fw-semibold">Kode Rule</label>
-                    <input type="text" name="kode_rule" id="kode_rule" class="form-control" placeholder="Contoh: R1" required value="<?php echo isset($_POST['kode_rule']) ? htmlspecialchars($_POST['kode_rule']) : ''; ?>">
+                    <input type="text" name="kode_rule" id="kode_rule" class="form-control" placeholder="masukan kode rule" required value="<?php echo isset($_POST['kode_rule']) ? htmlspecialchars($_POST['kode_rule']) : ''; ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="id_part" class="form-label fw-semibold">Pilih Part Kendaraan Terkait (THEN)</label>
                     <select name="id_part" id="id_part" class="form-select" required>
-                        <option value="" disabled selected>-- Pilih Part Kendaraan --</option>
+                        <option value="" disabled selected></option>
                         <?php while ($pt = mysqli_fetch_assoc($part_list)): ?>
                             <option value="<?php echo $pt['id_part']; ?>" <?php echo (isset($_POST['id_part']) && $_POST['id_part'] == $pt['id_part']) ? 'selected' : ''; ?>>
                                 [<?php echo htmlspecialchars($pt['kode_part']); ?>] <?php echo htmlspecialchars($pt['nama_part']); ?>
@@ -90,7 +89,7 @@ include "../templates/header.php";
                         <?php endwhile; ?>
                     </select>
                 </div>
-
+                <!--
                 <div class="mb-3">
                     <label for="status" class="form-label fw-semibold">Status Uji Kelayakan</label>
                     <select name="status" id="status" class="form-select" required>
@@ -98,10 +97,10 @@ include "../templates/header.php";
                         <option value="LOLOS" <?php echo (isset($_POST['status']) && $_POST['status'] == 'LOLOS') ? 'selected' : ''; ?>>LOLOS</option>
                     </select>
                 </div>
-
+                -->
                 <div class="mb-3">
                     <label for="keputusan" class="form-label fw-semibold">Diagnosa Kerusakan</label>
-                    <textarea name="keputusan" id="keputusan" class="form-control" rows="3" placeholder="Contoh: Kerusakan pada sistem rem atau kampas aus" required><?php echo isset($_POST['keputusan']) ? htmlspecialchars($_POST['keputusan']) : ''; ?></textarea>
+                    <textarea name="keputusan" id="keputusan" class="form-control" rows="3" placeholder=><?php echo isset($_POST['keputusan']) ? htmlspecialchars($_POST['keputusan']) : ''; ?></textarea>
                 </div>
 
                 <div class="mb-4">

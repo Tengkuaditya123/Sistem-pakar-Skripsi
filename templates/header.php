@@ -220,11 +220,14 @@ if (in_array($current_dir, $admin_dirs) && $_SESSION['role'] !== 'admin') {
             padding: 5px 10px;
             outline: none;
         }
-        .dataTables_wrapper .dataTables_length select {
+            .dataTables_wrapper .dataTables_length select {
             border: 1px solid #ced4da;
             border-radius: 6px;
             padding: 5px;
             outline: none;
+            width: 70px !important;
+            min-width: 70px !important;
+            display: inline-block;
         }
         table.dataTable {
             border-collapse: collapse !important;

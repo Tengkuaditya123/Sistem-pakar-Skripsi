@@ -43,7 +43,7 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Tambah Part Kendaraan Baru</h2>
-        <p class="text-muted">Tambahkan part atau sub-sistem kendaraan baru ke sistem</p>
+        <p class="text-muted">Tambahkan part kendaraan baru</p>
     </div>
 </div>
 

@@ -58,7 +58,7 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Edit Part Kendaraan</h2>
-        <p class="text-muted">Perbarui data part atau sub-sistem kendaraan taktis (Rantis)</p>
+        <p class="text-muted">Perbarui data part kendaraan</p>
     </div>
 </div>
 

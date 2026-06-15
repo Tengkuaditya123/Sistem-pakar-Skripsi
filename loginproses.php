@@ -20,7 +20,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header("Location: dashboard/index.php");
         exit;
     } else {
-        echo "<script>alert('Username atau password salah!'); window.location.href='index.php';</script>";
+        header("Location: index.php?error=1");
         exit;
     }
 } else {

@@ -4,6 +4,7 @@
      background-size: cover;
      background-position: center;">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <div class="text-center" style="width: 300px; color: white;">
 
@@ -13,6 +14,13 @@
 
         <!-- TITLE -->
         <h4 class="mb-4">Login</h4>
+
+        <!-- ALERT -->
+        <?php if (isset($_GET['error']) && $_GET['error'] == '1'): ?>
+            <div class="alert alert-danger border-0 shadow-sm py-2 px-3 mb-3 text-start animate__animated animate__fadeIn" role="alert" style="font-size: 0.85rem; border-radius: 8px; background-color: rgba(220, 53, 69, 0.9); color: white;">
+                <i class="bi bi-exclamation-triangle-fill me-1"></i> Username atau password salah!
+            </div>
+        <?php endif; ?>
 
         <!-- FORM -->
         <form method="POST" action="loginproses.php">
