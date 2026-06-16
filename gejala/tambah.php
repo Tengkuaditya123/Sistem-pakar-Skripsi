@@ -59,12 +59,12 @@ include "../templates/header.php";
             <form method="POST" action="">
                 <div class="mb-3">
                     <label for="kode_gejala" class="form-label fw-medium">Kode Gejala</label>
-                    <input type="text" name="kode_gejala" id="kode_gejala" class="form-control" placeholder="Contoh: G11" required value="<?php echo isset($_POST['kode_gejala']) ? htmlspecialchars($_POST['kode_gejala']) : ''; ?>">
+                    <input type="text" name="kode_gejala" id="kode_gejala" class="form-control" <?php echo isset($_POST['kode_gejala']) ? htmlspecialchars($_POST['kode_gejala']) : ''; ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="nama_gejala" class="form-label fw-medium">Deskripsi Gejala Kerusakan</label>
-                    <textarea name="nama_gejala" id="nama_gejala" class="form-control" rows="3" placeholder="Contoh: Pedal rem terasa bergetar hebat saat ditekan perlahan" required><?php echo isset($_POST['nama_gejala']) ? htmlspecialchars($_POST['nama_gejala']) : ''; ?></textarea>
+                    <textarea name="nama_gejala" id="nama_gejala" class="form-control" rows="3" placeholder="masukan keterangan gejala baru..." required><?php echo isset($_POST['nama_gejala']) ? htmlspecialchars($_POST['nama_gejala']) : ''; ?></textarea>
                 </div>
 
                 <div class="mt-4 text-end">

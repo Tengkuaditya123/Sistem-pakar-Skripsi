@@ -3,7 +3,7 @@
         <!-- Footer -->
         <footer>
             <div class="container-fluid">
-                <span>&copy; <?php echo date('Y'); ?> Sistem Pakar QC Check - All rights reserved.</span>
+                <span>&copy; <?php echo date('Y'); ?> T.M. Aditya Ramadhan - Sistem Pakar QC Check.</span>
             </div>
         </footer>
     </div> <!-- End of content -->

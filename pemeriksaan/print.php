@@ -185,7 +185,7 @@ $query_gejala = mysqli_query($conn, "
                 <?php if ($pem['status_qc'] == 'LOLOS'): ?>
                     <span class="status-badge status-lolos">LOLOS QC</span>
                 <?php else: ?>
-                    <span class="status-badge status-tidak-lolos">TIDAK LOLOS QC / PERBAIKAN</span>
+                    <span class="status-badge status-tidak-lolos">TIDAK LOLOS QC</span>
                 <?php endif; ?>
             </td>
         </tr>

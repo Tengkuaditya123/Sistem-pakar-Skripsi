@@ -37,10 +37,9 @@ $error = '';
 if (isset($_POST['submit'])) {
     $id_part = intval($_POST['id_part']);
     $keputusan = trim($_POST['keputusan']);
-    $status = $_POST['status'];
     $selected_gejala = isset($_POST['gejala']) ? $_POST['gejala'] : []; // Array of id_gejala
 
-    if ($id_part <= 0 || empty($keputusan) || empty($status) || empty($selected_gejala)) {
+    if (empty($kode_rule) || $id_part <= 0 || empty($keputusan) || empty($selected_gejala)) {
         $error = 'Semua field wajib diisi dan minimal 1 gejala harus dipilih!';
     } else {
         // Hapus rule lama dengan kode_rule ini terlebih dahulu
@@ -80,7 +79,6 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Edit Rule: <?php echo htmlspecialchars($kode_rule); ?></h2>
-        <p class="text-muted">Perbarui pemetaan gejala, part kendaraan, keputusan diagnosa, atau status uji kelayakan</p>
     </div>
 </div>
 
@@ -100,7 +98,7 @@ include "../templates/header.php";
                 </div>
 
                 <div class="mb-3">
-                    <label for="id_part" class="form-label fw-semibold">Pilih Part Kendaraan Terkait (THEN)</label>
+                    <label for="id_part" class="form-label fw-semibold">Pilih Part Kendaraan Terkait</label>
                     <select name="id_part" id="id_part" class="form-select" required>
                         <?php $active_part = isset($_POST['id_part']) ? intval($_POST['id_part']) : $rule_meta['id_part']; ?>
                         <?php while ($pt = mysqli_fetch_assoc($part_list)): ?>
@@ -110,7 +108,7 @@ include "../templates/header.php";
                         <?php endwhile; ?>
                     </select>
                 </div>
-
+                <!--
                 <div class="mb-3">
                     <label for="status" class="form-label fw-semibold">Status Uji Kelayakan</label>
                     <select name="status" id="status" class="form-select" required>
@@ -119,15 +117,14 @@ include "../templates/header.php";
                         <option value="LOLOS" <?php echo ($active_status == 'LOLOS') ? 'selected' : ''; ?>>LOLOS</option>
                     </select>
                 </div>
-
+                -->
                 <div class="mb-3">
-                    <label for="keputusan" class="form-label fw-semibold">Diagnosa Kerusakan</label>
+                    <label for="keputusan" class="form-label fw-semibold">Hasil Diagnosa</label>
                     <textarea name="keputusan" id="keputusan" class="form-control" rows="3" required><?php echo htmlspecialchars(isset($_POST['keputusan']) ? $_POST['keputusan'] : $rule_meta['keputusan']); ?></textarea>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label fw-semibold d-block">Pilih Gejala Kerusakan (IF - Logika OR)</label>
-                    <p class="text-muted small">Pilih gejala apa saja yang jika muncul akan memicu rule ini.</p>
+                    <label class="form-label fw-semibold d-block">Pilih Gejala</label>
                     <div class="border rounded p-3 bg-light" style="max-height: 250px; overflow-y: auto;">
                         <?php if (mysqli_num_rows($gejala_list) > 0): ?>
                             <?php while ($gj = mysqli_fetch_assoc($gejala_list)): ?>

@@ -64,8 +64,8 @@ $query_gejala = mysqli_query($conn, "
             <?php if ($pem['status_qc'] == 'LOLOS'): ?>
                 <div class="p-4 rounded-3 text-center border" style="background-color: #d1e7dd; border-color: #a3cfbb !important; color: #0f5132;">
                     <h5 class="fw-bold mb-1">HASIL SERTIFIKASI QUALITY CONTROL</h5>
-                    <h1 class="fw-bold display-6 my-2 text-success">LOLOS QC / LAYAK</h1>
-                    <p class="mb-0 small">Kendaraan taktis dinyatakan layak jalan berdasarkan penilaian part/komponen terkait.</p>
+                    <h1 class="fw-bold display-6 my-2 text-success">LOLOS QC</h1>
+                    <p class="mb-0 small">Kendaraan taktis dinyatakan layak jalan berdasarkan penilaian part</p>
                 </div>
             <?php else: ?>
                 <div class="p-4 rounded-3 text-center border" style="background-color: #f8d7da; border-color: #f5c2c7 !important; color: #842029;">

@@ -25,14 +25,14 @@ $query_parts = mysqli_query($conn, "SELECT * FROM part_kendaraan ORDER BY kode_p
 <div class="row mb-4">
     <div class="col-md-12">
         <h2 class="fw-bold mb-1">Pilih Part Kendaraan</h2>
-        <p class="text-muted small">Tahap 2: Tentukan komponen/part rantis yang akan diperiksa</p>
+        <p class="text-muted small">Tahap 2: Pilih Part Kendaraan Yang Akan Diperiksa</p>
     </div>
 </div>
 
 <!-- Info Rantis Card -->
 <div class="card shadow-sm border-0 mb-4 bg-light border-start border-primary border-3">
     <div class="card-body p-3">
-        <h5 class="fw-bold mb-2 text-primary"><i class="bi bi-info-circle-fill"></i> Detail Kendaraan Tempur Terpilih:</h5>
+        <h5 class="fw-bold mb-2 text-primary"><i class="bi bi-info-circle-fill"></i> Detail Kendaraan:</h5>
         <div class="row">
             <div class="col-md-3">
                 <span class="text-muted small">Kode Rantis</span>
@@ -62,7 +62,7 @@ $query_parts = mysqli_query($conn, "SELECT * FROM part_kendaraan ORDER BY kode_p
                     <tr>
                         <th width="80px" class="ps-4">No</th>
                         <th width="150px">Kode Part</th>
-                        <th>Nama Part / Sistem</th>
+                        <th>Nama Part</th>
                         <th width="200px" class="text-center pe-4">Aksi</th>
                     </tr>
                 </thead>

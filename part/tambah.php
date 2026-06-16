@@ -59,12 +59,12 @@ include "../templates/header.php";
             <form method="POST" action="">
                 <div class="mb-3">
                     <label for="kode_part" class="form-label fw-medium">Kode Part</label>
-                    <input type="text" name="kode_part" id="kode_part" class="form-control" placeholder="Contoh: P06" required value="<?php echo isset($_POST['kode_part']) ? htmlspecialchars($_POST['kode_part']) : ''; ?>">
+                    <input type="text" name="kode_part" id="kode_part" class="form-control" <?php echo isset($_POST['kode_part']) ? htmlspecialchars($_POST['kode_part']) : ''; ?>">
                 </div>
 
                 <div class="mb-3">
-                    <label for="nama_part" class="form-label fw-medium">Nama Part / Sistem</label>
-                    <input type="text" name="nama_part" id="nama_part" class="form-control" placeholder="Contoh: Sistem Suspensi Hidrolik" required value="<?php echo isset($_POST['nama_part']) ? htmlspecialchars($_POST['nama_part']) : ''; ?>">
+                    <label for="nama_part" class="form-label fw-medium">Nama Part</label>
+                    <input type="text" name="nama_part" id="nama_part" class="form-control"<?php echo isset($_POST['nama_part']) ? htmlspecialchars($_POST['nama_part']) : ''; ?>">
                 </div>
 
                 <div class="mt-4 text-end">

@@ -10,7 +10,7 @@ $query_part = mysqli_query($conn, "SELECT * FROM part_kendaraan ORDER BY id_part
     <div class="col-md-12 d-flex justify-content-between align-items-center">
         <div>
             <h2 class="fw-bold mb-1">Kelola Data Part Kendaraan</h2>
-            <p class="text-muted small">Manajemen part atau sistem mekanis kendaraan taktis (Rantis)</p>
+            <p class="text-muted small">Manajemen Part Pada Kendaraan</p>
         </div>
         <a href="tambah.php" class="btn btn-primary btn-sm px-3 rounded d-flex align-items-center gap-1">
             <i class="bi bi-plus-lg"></i> Tambah Part

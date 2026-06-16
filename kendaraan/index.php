@@ -10,7 +10,7 @@ $query_kendaraan = mysqli_query($conn, "SELECT * FROM kendaraan ORDER BY id_kend
     <div class="col-md-12 d-flex justify-content-between align-items-center">
         <div>
             <h2 class="fw-bold mb-1">Kelola Data Kendaraan</h2>
-            <p class="text-muted small">Manajemen kendaraan taktis (Rantis) yang terdaftar</p>
+            <p class="text-muted small">Manajemen Kendaraan Rantis</p>
         </div>
         <a href="tambah.php" class="btn btn-primary btn-sm px-3 rounded d-flex align-items-center gap-1">
             <i class="bi bi-plus-lg"></i> Tambah Kendaraan

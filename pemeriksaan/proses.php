@@ -106,7 +106,7 @@ include "../templates/header.php";
 <div class="row mb-4">
     <div class="col-md-12">
         <h2 class="fw-bold mb-1">Checklist Gejala Kerusakan</h2>
-        <p class="text-muted small">Tahap 3: Centang gejala fisik yang terjadi pada komponen rantis</p>
+        <p class="text-muted small">Tahap 3: Centang Gejala Pada Part Kendaraan</p>
     </div>
 </div>
 

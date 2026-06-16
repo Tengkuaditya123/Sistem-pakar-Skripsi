@@ -59,7 +59,7 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Edit Data Kendaraan</h2>
-        <p class="text-muted">Perbarui data kendaraan taktis (Rantis)</p>
+        <p class="text-muted">Perbarui Data Kendaraan</p>
     </div>
 </div>
 

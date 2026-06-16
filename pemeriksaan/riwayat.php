@@ -32,7 +32,6 @@ if ($role == 'admin') {
 <div class="row mb-4">
     <div class="col-md-12">
         <h2 class="fw-bold mb-1">Cetak Hasil Pemeriksaan</h2>
-        <p class="text-muted small">Daftar riwayat hasil pengujian Quality Control Kendaraan Rantis Anda</p>
     </div>
 </div>
 

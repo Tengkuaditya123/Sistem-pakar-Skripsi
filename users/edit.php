@@ -67,7 +67,7 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Edit Data Pengguna</h2>
-        <p class="text-muted">Perbarui data admin atau petugas QC lapangan</p>
+        <p class="text-muted">Perbarui Data User</p>
     </div>
 </div>
 

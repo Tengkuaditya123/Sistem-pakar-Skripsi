@@ -45,8 +45,8 @@ include "../templates/header.php";
         <a href="index.php" class="btn btn-outline-secondary btn-sm mb-3">
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
-        <h2>Tambah Pengguna Baru</h2>
-        <p class="text-muted">Tambahkan admin baru atau petugas QC lapangan</p>
+        <h2>Tambah Data Pengguna Baru</h2>
+        <p class="text-muted">Tambahkan Akun Dan Data Pengguna</p>
     </div>
 </div>
 

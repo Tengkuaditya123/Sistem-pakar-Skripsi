@@ -9,7 +9,7 @@ $query_kendaraan = mysqli_query($conn, "SELECT * FROM kendaraan ORDER BY nama_ke
 <div class="row mb-4">
     <div class="col-md-12">
         <h2 class="fw-bold mb-1">Pemeriksaan QC</h2>
-        <p class="text-muted small">Mulai pengujian kelayakan kendaraan taktis rantis</p>
+        <p class="text-muted small">Mulai Pemeriksaan Kendaraan Rantis</p>
     </div>
 </div>
 

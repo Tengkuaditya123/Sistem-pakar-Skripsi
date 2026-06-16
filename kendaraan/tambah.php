@@ -44,7 +44,7 @@ include "../templates/header.php";
             <i class="bi bi-arrow-left"></i> Kembali ke Daftar
         </a>
         <h2>Tambah Kendaraan Baru</h2>
-        <p class="text-muted">Tambahkan kendaraan taktis (Rantis) baru ke dalam sistem monitoring</p>
+        <p class="text-muted">Tambahkan Kendaraan Rantis Baru</p>
     </div>
 </div>
 
@@ -59,18 +59,18 @@ include "../templates/header.php";
 
             <form method="POST" action="">
                 <div class="mb-3">
-                    <label for="kode_kendaraan" class="form-label fw-medium">Kode Kendaraan (No. Registrasi / Lambung)</label>
-                    <input type="text" name="kode_kendaraan" id="kode_kendaraan" class="form-control" placeholder="Contoh: ANOA-6X6-04" required value="<?php echo isset($_POST['kode_kendaraan']) ? htmlspecialchars($_POST['kode_kendaraan']) : ''; ?>">
+                    <label for="kode_kendaraan" class="form-label fw-medium">Kode Kendaraan</label>
+                    <input type="text" name="kode_kendaraan" id="kode_kendaraan" class="form-control" <?php echo isset($_POST['kode_kendaraan']) ? htmlspecialchars($_POST['kode_kendaraan']) : ''; ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="nama_kendaraan" class="form-label fw-medium">Nama Kendaraan</label>
-                    <input type="text" name="nama_kendaraan" id="nama_kendaraan" class="form-control" placeholder="Contoh: Panser Anoa APC 6x6" required value="<?php echo isset($_POST['nama_kendaraan']) ? htmlspecialchars($_POST['nama_kendaraan']) : ''; ?>">
+                    <input type="text" name="nama_kendaraan" id="nama_kendaraan" class="form-control"<?php echo isset($_POST['nama_kendaraan']) ? htmlspecialchars($_POST['nama_kendaraan']) : ''; ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="keterangan" class="form-label fw-medium">Keterangan / Fungsi Kendaraan</label>
-                    <textarea name="keterangan" id="keterangan" class="form-control" rows="3" placeholder="Masukkan keterangan singkat kendaraan..."><?php echo isset($_POST['keterangan']) ? htmlspecialchars($_POST['keterangan']) : ''; ?></textarea>
+                    <textarea name="keterangan" id="keterangan" class="form-control" rows="3" placeholder="Masukkan keterangan kendaraan..."><?php echo isset($_POST['keterangan']) ? htmlspecialchars($_POST['keterangan']) : ''; ?></textarea>
                 </div>
 
                 <div class="mt-4 text-end">

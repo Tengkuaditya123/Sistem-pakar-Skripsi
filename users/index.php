@@ -10,7 +10,7 @@ $query_users = mysqli_query($conn, "SELECT * FROM users ORDER BY id_user DESC");
     <div class="col-md-12 d-flex justify-content-between align-items-center">
         <div>
             <h2 class="fw-bold mb-1">Kelola Data Pengguna</h2>
-            <p class="text-muted small">Manajemen akun admin dan petugas QC lapangan</p>
+            <p class="text-muted small">Manajemen Data User Pengguna</p>
         </div>
         <a href="tambah.php" class="btn btn-primary btn-sm px-3 rounded d-flex align-items-center gap-1">
             <i class="bi bi-plus-lg"></i> Tambah Pengguna

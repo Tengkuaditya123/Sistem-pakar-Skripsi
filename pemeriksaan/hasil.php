@@ -38,7 +38,7 @@ $query_gejala = mysqli_query($conn, "
 <div class="row mb-4">
     <div class="col-md-12">
         <h2 class="fw-bold mb-1">Hasil Diagnosa QC</h2>
-        <p class="text-muted small">Hasil uji kelayakan part rantis oleh sistem pakar</p>
+        <p class="text-muted small">Hasil Pemeriksaan Kendaraan Rantis Oleh Sistem</p>
     </div>
 </div>
 
@@ -49,7 +49,7 @@ $query_gejala = mysqli_query($conn, "
             <div class="p-4 rounded-3 text-center border" style="background-color: #d1e7dd; border-color: #a3cfbb !important; color: #0f5132;">
                 <h5 class="fw-bold mb-1">HASIL SERTIFIKASI QUALITY CONTROL</h5>
                 <h1 class="fw-bold display-5 my-2 text-success"><i class="bi bi-patch-check-fill me-2"></i> LOLOS QC</h1>
-                <p class="mb-0 small fw-medium">Sistem menyatakan part/komponen kendaraan rantis sesuai standart.</p>
+                <p class="mb-0 small fw-medium">Sistem Menyatakan Kendaraan Rantis Sesuai Standar Dan Lolos Pemeriksaan QC</p>
             </div>
         <?php else: ?>
             <div class="p-4 rounded-3 text-center border" style="background-color: #f8d7da; border-color: #f5c2c7 !important; color: #842029;">
@@ -64,7 +64,7 @@ $query_gejala = mysqli_query($conn, "
     <div class="col-md-6 mb-4">
         <div class="card shadow-sm border-0 h-100">
             <div class="card-header bg-dark text-white py-3">
-                <h6 class="card-title mb-0 fw-bold"><i class="bi bi-info-circle me-2"></i> Informasi Rantis & Penguji</h6>
+                <h6 class="card-title mb-0 fw-bold"><i class="bi bi-info-circle me-2"></i> Informasi Keterangan</h6>
             </div>
             <div class="card-body p-4">
                 <table class="table table-borderless align-middle mb-0">
