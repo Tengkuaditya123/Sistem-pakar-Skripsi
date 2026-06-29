@@ -174,7 +174,7 @@ if ($role === 'admin') {
                                 <td>
                                     <div class="btn-action-group">
                                         <?php if ($user['id_user'] != $_SESSION['id_user']): ?>
-                                            <a href="../users/hapus.php?id=<?php echo $user['id_user']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Apakah Anda yakin ingin menghapus user ini?" title="Hapus">
+                                            <a href="../users/hapus.php?id=<?php echo $user['id_user']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Yakin ingin menghapus data ini?" title="Hapus">
                                                 <i class="bi bi-trash-fill"></i>
                                             </a>
                                         <?php else: ?>

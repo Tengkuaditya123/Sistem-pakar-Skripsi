@@ -70,7 +70,7 @@ $query_kendaraan = mysqli_query($conn, "SELECT * FROM kendaraan ORDER BY id_kend
                             <td>
                                 <div class="btn-action-group">
                                     <!-- Aksi: Hapus di kiri (merah), Edit di kanan (biru) sesuai mockup -->
-                                    <a href="hapus.php?id=<?php echo $kdr['id_kendaraan']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Apakah Anda yakin ingin menghapus kendaraan ini?" title="Hapus">
+                                    <a href="hapus.php?id=<?php echo $kdr['id_kendaraan']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Yakin ingin menghapus data ini?" title="Hapus">
                                         <i class="bi bi-trash-fill"></i>
                                     </a>
                                     

@@ -107,7 +107,7 @@
                                 <td>
                                     <div class="btn-action-group">
                                         <!-- Aksi: Hapus (kode_rule) & Edit (kode_rule) -->
-                                        <a href="hapus.php?kode=<?php echo urlencode($rule['kode_rule']); ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Apakah Anda yakin ingin menghapus rule <?php echo htmlspecialchars($rule['kode_rule']); ?>?" title="Hapus">
+                                        <a href="hapus.php?kode=<?php echo urlencode($rule['kode_rule']); ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Yakin ingin menghapus data ini?" title="Hapus">
                                             <i class="bi bi-trash-fill"></i>
                                         </a>
                                         

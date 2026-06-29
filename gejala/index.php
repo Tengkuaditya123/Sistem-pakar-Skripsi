@@ -68,7 +68,7 @@ $query_gejala = mysqli_query($conn, "SELECT * FROM gejala ORDER BY id_gejala DES
                             <td>
                                 <div class="btn-action-group">
                                     <!-- Aksi: Hapus di kiri, Edit di kanan -->
-                                    <a href="hapus.php?id=<?php echo $gj['id_gejala']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Apakah Anda yakin ingin menghapus gejala ini? Semua rule terkait akan ikut terhapus." title="Hapus">
+                                    <a href="hapus.php?id=<?php echo $gj['id_gejala']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Yakin ingin menghapus data ini?" title="Hapus">
                                         <i class="bi bi-trash-fill"></i>
                                     </a>
                                     

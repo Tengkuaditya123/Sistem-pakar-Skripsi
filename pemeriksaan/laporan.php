@@ -83,7 +83,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'hapus') {
                             <td class="text-center">
                                 <div class="btn-action-group justify-content-center">
                                     <!-- Aksi: Hapus Laporan -->
-                                    <a href="laporan.php?action=hapus&id=<?php echo $row['id_pemeriksaan']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Apakah Anda yakin ingin menghapus data laporan ini?" title="Hapus">
+                                    <a href="laporan.php?action=hapus&id=<?php echo $row['id_pemeriksaan']; ?>" class="btn btn-danger btn-sm p-1 px-2 btn-confirm-delete" data-message="Yakin ingin menghapus data ini?" title="Hapus">
                                         <i class="bi bi-trash-fill"></i>
                                     </a>
                                     <!-- Detail/Cetak -->
